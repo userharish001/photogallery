@@ -1,0 +1,567 @@
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+.dark-mode {
+  background-color: #0d1021;
+  color: #ffffff;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-top:7px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  transition: 0.4s;
+}
+input:checked+.slider {
+  background-color: #2196F3;
+}
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.navbars{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  top:0;
+  left:0;
+  right:0;
+  position:fixed;
+  padding:2px;
+  background-color: darkgray;
+  border-radius: 10px;
+  background: #e0e0e0;
+  box-shadow:  8px 8px 16px #747474,
+               -8px -8px 16px #ffffff;
+
+}
+.left{
+  display:flex;
+}
+.center{
+  display:flex;
+  gap:20px;
+}
+.center a{
+  text-decoration:none;
+  color:black;
+}
+.center a:focus{
+  color:red;
+  box-shadow:  8px 8px 16px #747474,
+  -8px -8px 16px orangered;
+  padding:3px;
+  border-radius: 5px;
+}
+.center a:hover{
+  color:red;
+}
+.right{
+  display: flex;
+  gap:5px;
+}
+.input {
+  color: white;
+  border: 2px solid #8707ff;
+  border-radius: 10px;
+  padding: 10px 25px;
+  background: transparent;
+  max-width: 190px;
+}
+.input:active {
+  box-shadow: 2px 2px 15px #8707ff inset;
+}
+.hamburger{
+  font-size:25px;
+  cursor:pointer;
+  display: none;
+}
+button {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+button:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+@media (max-width: 768px) {
+  .center, .right {
+    display: none; /* Hide the menu items initially */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbars.active .center, 
+  .navbars.active .right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+  }
+
+  .center a {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .right {
+    justify-content: center;
+  }
+}
+ .h1 {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 2.5rem;
+  letter-spacing: 20px;
+  word-spacing: 20px;
+}
+.wrapper{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  margin-top: 4rem;
+}
+.container{
+  height: 400px;
+  display: flex;
+  flex-direction: nowrap;
+  justify-content: start;
+}
+.card{
+  width: 80px;
+  border-radius: .75rem;
+  background-size: cover;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 0 10px;
+  display: flex;
+  align-items: flex-end;
+  transition: .6s cubic-bezier(.28, -0.03,0,0.99);
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
+}
+.card > .row{
+  color: white;
+  display: flex;
+  flex-direction: nowrap;
+}
+.card > .row > .icon{
+  background: #223;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+.card > .row > .description{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 80px;
+  width: 520px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition-delay: .3s;
+  transition: all .3s ease;
+}
+.description p{
+  color: #ffffff;
+  padding-top: 5px;
+}
+.description h4{
+  text-transform: uppercase;
+}
+.container input{
+  display: none;
+}
+.container input:checked + label{
+  width: 600px;
+}
+.container input:checked + label .description{
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.card[for="c1"]{
+  background-image: url('./images/autumn-road-landscape-beautiful-nature-260nw-2499328945.jpg');
+}
+.card[for="c2"]{
+  background-image: url('./images/breathtaking-summer-day-wild-mountains-260nw-2499073105.jpg');
+}
+.card[for="c3"]{
+  background-image: url('./images/clean-shore-ban-stone-trees-green_1417-1275.jpg');
+}
+.card[for="c4"]{
+  background-image: url('./images/landscape-waterfall_1417-2008.jpg');
+}
+.card[for="c5"]{
+  background-image: url('./images/mt-fuji-with-green-tea-field-sunrise-shizuoka-japan_29505-689.jpg');
+}
+.card[for="c6"]{
+  background-image: url('./images/sand-road-green-field-tree_559599-14.jpg');
+}
+.card[for="c7"]{
+  background-image: url('./images/tea-plantation-nature-background_87394-16327.jpg');
+}
+@media (max-width: 480px) {
+  .wrapper {
+    margin-top: 2rem;
+    padding: 0;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* Card styles for mobile: default and expanded states */
+  .card {
+    width: 90%;
+    max-width: 250px;
+    transition: all 0.4s ease;
+    border-radius: 1rem;
+  }
+
+  /* Expand the card when selected */
+  .container input:checked + label {
+    transform: scaleY(1.5); /* Scale up the card */
+    width: 100%;
+    max-width: 350px; /* Adjust width for the expanded view */
+    box-shadow: 0px 12px 36px -8px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .container input:checked + label .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .container input:checked + label .description {
+    font-size: 1rem;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .description h4 {
+    font-size: 1rem;
+  }
+
+  .description p {
+    font-size: 0.9rem;
+  }
+}
+/*for automatic slideshow*/
+.slideshow-title {
+  text-align: center;
+  color: #333;
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Slideshow images */
+.mySlides {
+  width: 100%;
+  height: auto;
+  display: none; /* Hide all slides initially */
+  transition: opacity 1s ease-in-out;
+}
+
+/* For making images responsive on smaller devices */
+@media (max-width: 768px) {
+  .slideshow-container {
+    width: 100%;
+  }
+
+  .slideshow-title {
+    font-size: 1.5rem;
+  }
+}
+/*about */
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #444;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Section styling */
+.about-section,
+.gallery-highlights,
+.meet-the-team {
+  margin: 40px 0;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #444;
+  border-bottom: 2px solid #444;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+/* Gallery Highlights */
+.highlight-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.highlight-item {
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.highlight-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.highlight-item:hover {
+  transform: scale(1.05);
+}
+/* Team Section */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.team-member {
+  width: 30%;
+  text-align: center;
+}
+
+.team-member img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-member h3 {
+  margin-top: 5px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .highlight-grid, .team-grid {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .highlight-item, .team-member {
+      width: 80%;
+  }
+}
+footer{
+  background-color: #0d1021;
+  padding:10px;
+  color:white;
+  border-radius: 10px;
+  box-shadow:  8px 8px 16px #747474,
+  -8px -8px 16px #ffffff;
+  text-align: center;
+}
+footer h1{
+  font-size:18px;
+}
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:9px;
+}
+.link a:hover{
+  color:white;
+}
+.link a:focus{
+  color:red;
+}
+.link a:active{
+  color:orangered;
+}
+#contact{
+  margin:5px;
+}
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; 
+  justify-content: center;
+}
+
+.image-item {
+  width: 200px; 
+  text-align: center;
+  cursor: pointer;
+}
+
+.image-item img {
+  width: 100%;
+  height: 150px; 
+  object-fit: cover;
+  border-radius: 8px; 
+}
+
+.button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+}
